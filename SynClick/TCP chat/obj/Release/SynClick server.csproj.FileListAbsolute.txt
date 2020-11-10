@@ -1,0 +1,7 @@
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat\bin\Release\TCP chat.exe.config
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat\bin\Release\TCP chat.exe
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat\bin\Release\TCP chat.pdb
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat\obj\Release\SynClick server.csproj.CoreCompileInputs.cache
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat\obj\Release\TCP chat.exe
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat\obj\Release\TCP chat.pdb
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat\obj\Release\SynClick server.csprojAssemblyReference.cache

@@ -1,0 +1,7 @@
+C:\Users\Hamid Rahimi\source\repos\TCP chat\TCP chat\bin\Debug\TCP chat.exe.config
+C:\Users\Hamid Rahimi\source\repos\TCP chat\TCP chat\bin\Debug\TCP chat.exe
+C:\Users\Hamid Rahimi\source\repos\TCP chat\TCP chat\bin\Debug\TCP chat.pdb
+C:\Users\Hamid Rahimi\source\repos\TCP chat\TCP chat\obj\Debug\TCP chat server.csprojAssemblyReference.cache
+C:\Users\Hamid Rahimi\source\repos\TCP chat\TCP chat\obj\Debug\TCP chat server.csproj.CoreCompileInputs.cache
+C:\Users\Hamid Rahimi\source\repos\TCP chat\TCP chat\obj\Debug\TCP chat.exe
+C:\Users\Hamid Rahimi\source\repos\TCP chat\TCP chat\obj\Debug\TCP chat.pdb

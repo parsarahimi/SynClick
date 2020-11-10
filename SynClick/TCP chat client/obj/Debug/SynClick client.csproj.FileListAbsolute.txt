@@ -1,0 +1,7 @@
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat client\bin\Debug\TCP chat client.exe.config
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat client\bin\Debug\TCP chat client.exe
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat client\bin\Debug\TCP chat client.pdb
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat client\obj\Debug\SynClick client.csprojAssemblyReference.cache
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat client\obj\Debug\SynClick client.csproj.CoreCompileInputs.cache
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat client\obj\Debug\TCP chat client.exe
+C:\Users\Hamid Rahimi\source\repos\SynClick\TCP chat client\obj\Debug\TCP chat client.pdb
