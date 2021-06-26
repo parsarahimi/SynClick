@@ -740,7 +740,7 @@ namespace MultiClient
             (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private static string Name;
         private static IPAddress serverip;
-        private const int PORT = 8000;
+        private static int PORT = 8000;
         private static int shoot_keyint;
         private static int toggle_keyint;
 
@@ -832,8 +832,10 @@ namespace MultiClient
                 Console.Write("Enter name: ");
                 Name = Console.ReadLine();
             }
-            Console.Write("Enter IP: ");
+            Console.Write("Enter IP (just IP, PORT later): ");
             serverip = IPAddress.Parse(Console.ReadLine());
+            Console.Write("Enter PORT: ");
+            PORT = Convert.ToInt32(Console.ReadLine());
             ConnectToServer();
             RequestLoop();
             Exit();
