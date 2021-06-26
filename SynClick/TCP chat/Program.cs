@@ -74,7 +74,6 @@ namespace MultiServer
             serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
             serverSocket.Listen(0);
             serverSocket.BeginAccept(AcceptCallback, null);
-            serverSocket.E
             Console.WriteLine("Server setup complete");
         }
 

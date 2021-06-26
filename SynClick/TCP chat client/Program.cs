@@ -4,9 +4,12 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+
 namespace MultiClient
 {
 
@@ -731,13 +734,15 @@ namespace MultiClient
         private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
         private const int MOUSEEVENTF_RIGHTUP = 0x10;
         [DllImport("User32.dll")]
-        private static extern short GetAsyncKeyState(System.Windows.Forms.Keys vKey);
+        private static extern short GetAsyncKeyState(System.Int32 vKey);
 
         private static readonly Socket ClientSocket = new Socket
             (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private static string Name;
         private static IPAddress serverip;
         private const int PORT = 8000;
+        private static int shoot_keyint;
+        private static int toggle_keyint;
 
         private static bool EnableClick = true;
         static void BusySleep(double duration)
@@ -757,12 +762,13 @@ namespace MultiClient
         {
             while (true)
             {
-                short MonitorME = GetAsyncKeyState(System.Windows.Forms.Keys.R);
-                short MonitorME2 = GetAsyncKeyState(System.Windows.Forms.Keys.XButton2);
+                short MonitorME = GetAsyncKeyState(shoot_keyint);
+                short MonitorME2 = GetAsyncKeyState(toggle_keyint);
                 //Console.WriteLine("MonitorME:" + MonitorME.ToString());
                 if (MonitorME < 0)//when key is pressed its -32768 otherwise 0
                 {
                     byte[] buffer = Encoding.ASCII.GetBytes("shoot");
+                    Console.WriteLine("Sent a fire request");
                     ClientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
                     Thread.Sleep(150);
                 }
@@ -798,6 +804,27 @@ namespace MultiClient
         }
         static void Main()
         {
+            var path = Directory.GetCurrentDirectory().ToString() + "\\client.config";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            foreach (string line in lines)
+            {
+                // Use a tab to indent each line of the file.
+                if (line.IndexOf("shoot") > -1)
+                {
+                    int indecs = line.IndexOf("0x");
+                    string hexcode = line.Substring(indecs, 4);
+                    Console.WriteLine("hexcode for shoot set to: " + hexcode);
+                    shoot_keyint = Convert.ToInt32(hexcode, 16);
+                }
+                if (line.IndexOf("toggle") > -1)
+                {
+                    int indecs = line.IndexOf("0x");
+                    string hexcode = line.Substring(indecs, 4);
+                    Console.WriteLine("hexcode for toggle set to: " + hexcode);
+                    toggle_keyint = Convert.ToInt32(hexcode, 16);
+                }
+            }
+
             Console.Title = "Client";
             Name = "";
             while (Name=="")
