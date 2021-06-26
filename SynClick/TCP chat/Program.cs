@@ -74,6 +74,7 @@ namespace MultiServer
             serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
             serverSocket.Listen(0);
             serverSocket.BeginAccept(AcceptCallback, null);
+            serverSocket.E
             Console.WriteLine("Server setup complete");
         }
 
@@ -136,7 +137,7 @@ namespace MultiServer
             byte[] recBuf = new byte[received];
             Array.Copy(buffer, recBuf, received);
             string text = Encoding.ASCII.GetString(recBuf);
-            Console.WriteLine("Received Text: " + text);
+            Console.WriteLine("Received Text from "+ IPAddress.Parse(((IPEndPoint)current.RemoteEndPoint).Address.ToString()) +": " + text);
 
             if (text.IndexOf("sync") > -1) // Client requested time
             {
