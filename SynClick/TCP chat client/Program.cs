@@ -757,7 +757,7 @@ namespace MultiClient
         {
             while (true)
             {
-                short MonitorME = GetAsyncKeyState(System.Windows.Forms.Keys.XButton1);
+                short MonitorME = GetAsyncKeyState(System.Windows.Forms.Keys.R);
                 short MonitorME2 = GetAsyncKeyState(System.Windows.Forms.Keys.XButton2);
                 //Console.WriteLine("MonitorME:" + MonitorME.ToString());
                 if (MonitorME < 0)//when key is pressed its -32768 otherwise 0
@@ -918,8 +918,8 @@ namespace MultiClient
         {
             Console.WriteLine("Recieved fire order " + howlong.ToString()+" seconds");
             BusySleep(howlong);
-            // mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-            SendKeyPress(KeyCode.SPACE_BAR);
+            mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            //SendKeyPress(KeyCode.KEY_R);
         }
     }
 }

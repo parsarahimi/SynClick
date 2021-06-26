@@ -28,7 +28,7 @@ namespace MultiServer
         private static List<bool> clientPremission = new List<bool>();
         private static string password;
         private const int BUFFER_SIZE = 2048;
-        private const int PORT = 8000;
+        private static int PORT = 8000;
         private static readonly byte[] buffer = new byte[BUFFER_SIZE];
         static void BusySleep(double duration)
         {
@@ -57,6 +57,12 @@ namespace MultiServer
             Console.Title = "Server";
             Console.WriteLine("Write password for shoot");
             password = Console.ReadLine();
+            Console.WriteLine("Write server port for shoot, write nothing to use port 8000 (default)");
+            string userinp = Console.ReadLine();
+            if (userinp!="")
+            {
+                PORT = Int32.Parse(userinp);
+            }
             SetupServer();
             Console.ReadLine(); // When we press enter close everything
             CloseAllSockets();
@@ -64,7 +70,7 @@ namespace MultiServer
 
         private static void SetupServer()
         {
-            Console.WriteLine("Setting up server...");
+            Console.WriteLine(String.Format("Setting up server on port {0}...",PORT));
             serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT));
             serverSocket.Listen(0);
             serverSocket.BeginAccept(AcceptCallback, null);
